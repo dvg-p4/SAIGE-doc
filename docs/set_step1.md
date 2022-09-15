@@ -9,14 +9,14 @@ parent: Set-based test
 
 ## Step 1: fitting the null logistic/linear mixed model
 
-1.  When a sparse GRM is used to fit the null model (--useSparseGRMtoFitNULL=TRUE)
+1.  When a sparse GRM is used to fit the null model (`--useSparseGRMtoFitNULL=TRUE`)
 
-   * Multiple variance ratios need to be estimated based on different minor allele count categories with *--isCateVarianceRatio=TRUE*
-       ** Different from Step 1 in SAIGE for single-variant tests in SAIGE, in which only a single variance ratio is estiamted
-       ** By default, two variance ratios are estiamted for 10 <= MAC < 20 and MAC >= 20.
-       ** Use *--cateVarRatioMinMACVecExclude* and *--cateVarRatioMaxMACVecInclude* to modify the MAC categories
-       ** Note that the PLINK file need to contain at least 200 variants whose MAC fall in these categories. 
-       ** This PLINK file is ONLY used for variance ratio estimation and contains random markers extracted from the PLINK file that is LD pruned and used for GRM and variance ratio estimation  
+   * Multiple variance ratios need to be estimated based on different minor allele count categories with `--isCateVarianceRatio=TRUE`
+       * Different from Step 1 in SAIGE for single-variant tests in SAIGE, in which only a single variance ratio is estiamted
+       * By default, two variance ratios are estiamted for 10 <= MAC < 20 and MAC >= 20.
+       * Use `--cateVarRatioMinMACVecExclude` and `--cateVarRatioMaxMACVecInclude` to modify the MAC categories
+       * Note that the PLINK file need to contain at least 200 variants whose MAC fall in these categories. 
+       * This PLINK file is ONLY used for variance ratio estimation and contains random markers extracted from the PLINK file that is LD pruned and used for GRM and variance ratio estimation  
 
     ```
     #(Optional) get ids for 1000 random markers for each MAC category
@@ -50,17 +50,17 @@ parent: Set-based test
 
     ```
 
-2. When a full GRM is used to fit the null model (GRM is constructed on-the-fly using genotypes in the PLINK file, **--plinkfile=**)
+2. When a full GRM is used to fit the null model (GRM is constructed on-the-fly using genotypes in the PLINK file, `--plinkfile=`)
    
-   * Use a full GRM to fit the null model(by default, --useSparseGRMtoFitNULL=FALSE) with multiple CPUs ( --nThreads)
-   * Use both a full GRM (to be constrcuted using genotypes in the PLINK file) and a sparse GRM with *--useSparseGRMforVarRatio=TRUE* to estimate the variance ratio(s)
-       ** Use *--sparseGRMFile* for the file containing the sparse GRM
-       ** Use *--sparseGRMSampleIDFile* for the file containing the IDs for samples in the sparse GRM
-   * Multiple variance ratios need to be estimated based on different minor allele count categories with *--isCateVarianceRatio=TRUE*
-       ** By default, two variance ratios are estiamted for 10 <= MAC < 20 and MAC >= 20.
-       ** Use *--cateVarRatioMinMACVecExclude* and *--cateVarRatioMaxMACVecInclude* to modify the MAC categories
-       ** Note that the PLINK file need to contain at least 200 variants whose MAC fall in these categories
-       ** Different from Step 1 in SAIGE for single-variant tests in SAIGE, in which only a single variance ratio is estiamted
+   * Use a full GRM to fit the null model(by default, `--useSparseGRMtoFitNULL=FALSE`) with multiple CPUs (`--nThreads`)
+   * Use both a full GRM (to be constrcuted using genotypes in the PLINK file) and a sparse GRM with `--useSparseGRMforVarRatio=TRUE` to estimate the variance ratio(s)
+       * Use `--sparseGRMFile` for the file containing the sparse GRM
+       * Use `--sparseGRMSampleIDFile` for the file containing the IDs for samples in the sparse GRM
+   * Multiple variance ratios need to be estimated based on different minor allele count categories with `--isCateVarianceRatio=TRUE`
+       * By default, two variance ratios are estiamted for 10 <= MAC < 20 and MAC >= 20.
+       * Use `--cateVarRatioMinMACVecExclude` and `--cateVarRatioMaxMACVecInclude` to modify the MAC categories
+       * Note that the PLINK file need to contain at least 200 variants whose MAC fall in these categories
+       * Different from Step 1 in SAIGE for single-variant tests in SAIGE, in which only a single variance ratio is estiamted
 
     ```
     Rscript step1_fitNULLGLMM.R     \
@@ -85,7 +85,7 @@ parent: Set-based test
 ### Input files (Same as input in SAIGE Step 1)
 
 * Same as the input in Step 1 by SAIGE for single-variant association tests <br/>
-* Specific to SAIGE-GENE+ for rare variants, the PLINK file --plinkFile= needs to contain rare variants with MAC low to 10. 
+* Specific to SAIGE-GENE+ for rare variants, the PLINK file `--plinkFile=` needs to contain rare variants with MAC low to 10. 
 
 
 1. **(Required)** Phenotype file (contains covariates if any, such as gender and age)

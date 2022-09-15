@@ -9,8 +9,8 @@ parent: Single-variant test
 
 ## Step 1: fitting the null logistic/linear mixed model
 
-* For **binary traits**, a null logistic mixed model will be fitted (*--traitType=binary*).  <br/>
-* For **quantitative traits**, a null linear mixed model will be fitted (*--traitType=quantitative*) and needs to be inverse normalized (*--invNormalize=TRUE*) <br/>
+* For **binary traits**, a null logistic mixed model will be fitted (`--traitType=binary`).
+* For **quantitative traits**, a null linear mixed model will be fitted (`--traitType=quantitative`) and needs to be inverse normalized (`--invNormalize=TRUE`)
 * By default, covariates are included as offset in the model, use --isCovariateOffset=FALSE to deactivate this feature. It will cost more computation time with --isCovariateOffset=FALSE 
 
 * The example scripts are located in the *extdata* folder [https://github.com/saigegit/SAIGE/tree/main/extdata]
@@ -27,9 +27,9 @@ Rscript step1_fitNULLGLMM.R --help
 
 ### Fit the null model using a *full GRM*
 
-#### For **binary traits**, a null logistic mixed model will be fitted (*--traitType=binary*).  <br/>
-* Use *--qCovarColList* to list categorical covariates. Dummy variables will be created for different levels.  
-* Use *--nThreads* for number of CPUs to use
+#### For **binary traits**, a null logistic mixed model will be fitted (`--traitType=binary`).
+* Use `--qCovarColList` to list categorical covariates. Dummy variables will be created for different levels.  
+* Use `--nThreads` for number of CPUs to use
 
 ```
     Rscript step1_fitNULLGLMM.R     \
@@ -45,7 +45,7 @@ Rscript step1_fitNULLGLMM.R --help
         --IsOverwriteVarianceRatioFile=TRUE
 ```
 
-#### For **quantitative traits**, a null linear mixed model will be fitted (*--traitType=quantitative*) and needs to be inverse normalized (*--invNormalize=TRUE*) <br/>
+#### For **quantitative traits**, a null linear mixed model will be fitted (`--traitType=quantitative`) and needs to be inverse normalized (`--invNormalize=TRUE`)
 
 ```
     Rscript step1_fitNULLGLMM.R     \
@@ -68,14 +68,14 @@ Rscript step1_fitNULLGLMM.R --help
 * Use --useSparseGRMtoFitNULL=TRUE
 * Use --sparseGRMFile for the file containing the sparse GRM
 * Use --sparseGRMSampleIDFile for the file containing the IDs for samples in the sparse GRM
-* To only include a subset of samples to fit the null model, use **--SampleIDIncludeFile**
+* To only include a subset of samples to fit the null model, use `--SampleIDIncludeFile`
 * Only one CPU will be used and LOCO won't be applied
 
 
 #### Estimating variance ratio with random markers. This will speed up Step 2 with a fast test (set is_fastTest=TRUE in Step 2)
 * Use --skipVarianceRatioEstimation=FALSE
-* Specify the plink file containing markers that will be used for variance ratio estimation with --plinkFile. e.g. **--plinkFile=./input/nfam_100_nindep_0_step1_includeMoreRareVariants_poly_22chr**
-* Only a small subset of randomly selected markers are needed in the plink file. e.g. **--plinkFile=./input/nfam_100_nindep_0_step1_includeMoreRareVariants_poly_22chr_random1000**. This can reduce the memory usage for reading in plink file.
+* Specify the plink file containing markers that will be used for variance ratio estimation with --plinkFile. e.g. `--plinkFile=./input/nfam_100_nindep_0_step1_includeMoreRareVariants_poly_22chr`
+* Only a small subset of randomly selected markers are needed in the plink file. e.g. `--plinkFile=./input/nfam_100_nindep_0_step1_includeMoreRareVariants_poly_22chr_random1000`. This can reduce the memory usage for reading in plink file.
 
 ```
 
@@ -123,7 +123,7 @@ Rscript step1_fitNULLGLMM.R --help
 
 ### Input files
 1. **(Required)** Phenotype file (contains covariates if any, such as gender and age)
-The file can be either space or tab-delimited with a header. It is required that the file contains one column for sample IDs and one column for the phenotype. It may contain columns for covariates. <br/>
+The file can be either space or tab-delimited with a header. It is required that the file contains one column for sample IDs and one column for the phenotype. It may contain columns for covariates.
 
 <img src="{{site.baseurl | prepend: site.url}}/assets/img/pheno_head.png" width="300">
 
@@ -131,7 +131,7 @@ The file can be either space or tab-delimited with a header. It is required that
     less -S ./input/pheno_1000samples.txt_withdosages_withBothTraitTypes.txt
     ```
 
-2. **(Optional)** Genotype file for constructing the full genetic relationship matrix (GRM) and estimating the variance ratio<br/> 
+2. **(Optional)** Genotype file for constructing the full genetic relationship matrix (GRM) and estimating the variance ratio
 SAIGE takes the PLINK binary file for the genotypes and assumes the file prefix is the same one for .bed, .bim. and .fam
 
     ```
