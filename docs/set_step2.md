@@ -297,11 +297,11 @@ __*WARNING*__
 ### Please Refer to the SAIGE (Single-variant test) Step 2 input files for details. In addition, there are additonal input files required for the set-based tests
   
 1.  **(Required. Specific for set-based tests)** Group file containing marker IDs, annotations, and/or weights for each set (gene or region). 
-        * The first column contains the set name.
-        * Group file has 2 or 3 lines for each set. 
-        * marker IDs and annotations are required and weights are optional. 
-        * The second column has var (indicating the line is for marker IDs), anno (indicating the line is for annotations), and weight (indicating the line is for weights of markers used in the set-based tests)    
-        * If weights are not included in the group file, the weights will be calcuated as `beta(MAF, 1, 25)` by default
+    * The first column contains the set name.
+    * Group file has 2 or 3 lines for each set. 
+    * marker IDs and annotations are required and weights are optional. 
+    * The second column has var (indicating the line is for marker IDs), anno (indicating the line is for annotations), and weight (indicating the line is for weights of markers used in the set-based tests)    
+    * If weights are not included in the group file, the weights will be calcuated as `beta(MAF, 1, 25)` by default
 
     * group file without weights
 
