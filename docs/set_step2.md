@@ -294,7 +294,7 @@ __*WARNING*__
 
 ## Input files
 
-    * Please Refer to the SAIGE (Single-variant test) Step 2 input files for details. In addition, there are additonal input files required for the set-based tests
+### Please Refer to the SAIGE (Single-variant test) Step 2 input files for details. In addition, there are additonal input files required for the set-based tests
   
 1.  **(Required. Specific for set-based tests)** Group file containing marker IDs, annotations, and/or weights for each set (gene or region). 
         * The first column contains the set name.
